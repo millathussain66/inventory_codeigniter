@@ -5,13 +5,13 @@
 	<div class="card-body">
 
 
-		<form action="" method="post" name="myform" onsubmit="return validateform()">
+		<form action="<?php echo base_url('brand/update/'.$edit->id); ?>" method="post" name="myform" onsubmit="return validateform()">
 
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Brand Name * </span>
 				</div>
-				<input type="text" name="name" class="form-control" value="<?= $edit->name?>" require>
+				<input type="text" name="brand_name" class="form-control" value="<?= $edit->brand_name?>" require>
 				<?php echo form_hidden('entry_date', date('Y-m-d H:i:S')) ?>
 
 			</div>

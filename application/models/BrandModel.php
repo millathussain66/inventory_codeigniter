@@ -4,11 +4,15 @@ class BrandModel extends CI_Model
 
 
 	public function getBrand()
+
 	{
-		// $query = $this->db->query('SELECT * FROM brand');
-		// Get Data From Database
+		$this->db->order_by("id", "DESC");
 		$query = $this->db->get("brand");
 		return $query->result();
+		// $query = $this->db->query('SELECT * FROM brand');
+		// Get Data From Database
+		// $query = $this->db->get("brand");
+		// return $query->result();
 	}
 
 	public function insertBrand($data)
@@ -21,6 +25,16 @@ class BrandModel extends CI_Model
 		$query = $this->db->get_where('brand', ['id' => $id]);
 		return $query->row();
 
+	}
+
+	public function updateBrand($data,$id)
+	{
+	  return $this->db->update('brand', $data,['id' => $id]);
+
+	}
+	public function deleteBrand($id)
+	{
+		return $this->db->delete('brand', ['id' => $id]);
 	}
 
 	

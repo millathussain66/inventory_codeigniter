@@ -16,10 +16,10 @@
 			<tbody>
 
 
-				<?php foreach ($brand as $row) { ?>
+				<?php foreach ($brand as $key=>$row) { ?>
 					<tr>
-						<td><?php echo $row->id ?></td>
-						<td><?php echo $row->name ?></td>
+						<td><?php echo $key+1 ?></td>
+						<td><?php echo $row->brand_name ?></td>
 						<td><?php echo $row->entry_date ?></td>
 
 						<td>
@@ -28,7 +28,8 @@
 							</a>
 							<!--  -->
 
-							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href=""><i class="fa fa-trash"></i></a>
+<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger"
+ href="<?php echo base_url('brand/delete/'. $row->id) ?>"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -44,7 +45,7 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#brand-model">
+<button type="button" class="btn btn-primary mt-3 mb-3" data-toggle="modal" data-target="#brand-model">
 	Add Brand
 </button>
 
@@ -66,7 +67,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">Brand Name * </span>
 						</div>
-						<input type="text" name="name" class="form-control" require>
+						<input type="text" name="brand_name" class="form-control" require>
 						<?php echo form_hidden('entry_date', date('Y-m-d H:i:S')) ?>
 
 					</div>

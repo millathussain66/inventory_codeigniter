@@ -25,7 +25,7 @@ class BrandController extends CI_Controller
 
 		$data = [
 
-			'name' => $this->input->post('name'),
+			'brand_name' => $this->input->post('brand_name'),
 			'entry_date' => $this->input->post('entry_date'),
 		];
 
@@ -47,5 +47,27 @@ class BrandController extends CI_Controller
 		$this->load->view('edite', $data);
 
 		$this->load->view('include/footer');
+	}
+	public function update($id)
+	{
+		$data = [
+
+			'brand_name' => $this->input->post('brand_name'),
+			'entry_date' => $this->input->post('entry_date'),
+		];
+
+		$this->load->model('BrandModel');
+		$this->BrandModel->updateBrand($data,$id);
+		redirect(base_url('brand'));
+
+	}
+
+	public function delete($id)
+	{
+
+		$this->load->model('BrandModel');
+		$this->BrandModel->deleteBrand($id);
+		redirect(base_url('brand'));
+		
 	}
 }

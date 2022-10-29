@@ -16,4 +16,11 @@
 <body>
 
 
+
+
+	<div class="container mt-5">
+		<a href="<?php echo base_url('brand')?>" class="btn btn-info">Brand</a>
+		<a href="<?php echo base_url('model')?>" class="btn btn-danger">Model</a>
+		<a href="<?php echo base_url('items')?>" class="btn btn-primary">Items</a>
+	</div>
 	<div class="container mt-5">

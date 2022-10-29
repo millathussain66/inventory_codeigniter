@@ -19,6 +19,41 @@ class ModelMenu extends CI_Model
 	}
 
 
+	public function select_brand($data){
+    
+		$this->db->where('id', $data);
+		return $this->db->get('brand')->result_array()[0];
+		 
+	  }
+
+
+	public function insertModels($data)
+	{
+
+		$query = $this->db->query('SELECT brand_name FROM brand LIMIT 1');
+		$query->row();
+
+
+	
+		return $this->db->insert('models', $data);
+	
+	
+	}
+
+
+
+
+
+	public function editModels($id)
+	{
+
+
+		$query = $this->db->get_where('models', ['id' => $id]);
+		return $query->row();
+
+	}
+
+
 
 
 	

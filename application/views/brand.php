@@ -59,15 +59,17 @@
 				<h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
 			</div>
 			<div class="modal-body">
+			<div class="text-danger mb-3" id="error"></div>
 
 
-				<form action="<?php echo base_url('brand/add'); ?>" method="post" name="myform" onsubmit="return validateform()">
+
+	<form action="<?php echo base_url('brand/add'); ?>" method="post" name="myform"  id="myform">
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text">Brand Name * </span>
 						</div>
-						<input type="text" name="brand_name" class="form-control" require>
+						<input id="brand_name" type="text" name="brand_name" class="form-control" require>
 						<?php echo form_hidden('entry_date', date('Y-m-d H:i:S')) ?>
 
 					</div>
@@ -81,8 +83,3 @@
 </div>
 <!-- Modal Create -->
 
-<!-- edt Create -->
-
-<!-- Modal Create -->
-
-<!-- Footer Section -->

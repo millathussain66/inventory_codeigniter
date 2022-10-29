@@ -25,7 +25,7 @@
 						<td><?php echo $row->brand_name; ?></td>
 						<td><?php echo $row->entry_date; ?></td>
 						<td>
-							<a class="" href="">
+							<a class="" href="<?php echo base_url('model/edite/'.$row->id)?>">
 								<i class="fa fa-pencil-square-o"></i>
 							</a>
 							<!--  -->
@@ -62,7 +62,7 @@
 			<div class="modal-body">
 
 
-				<form action="" method="post" name="myform"">
+				<form action="<?php echo base_url('model/add')?>" method="post" name="myform"">
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">

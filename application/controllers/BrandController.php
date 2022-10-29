@@ -19,8 +19,10 @@ class BrandController extends CI_Controller
 		$this->load->view('include/footer');
 	}
 
+
 	public function store()
 	{
+		$this->load->library('form_validation');
 
 
 		$data = [

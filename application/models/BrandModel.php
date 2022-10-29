@@ -7,7 +7,9 @@ class BrandModel extends CI_Model
 
 	{
 		$this->db->order_by("id", "DESC");
+
 		$query = $this->db->get("brand");
+		
 		return $query->result();
 		// $query = $this->db->query('SELECT * FROM brand');
 		// Get Data From Database
@@ -35,6 +37,27 @@ class BrandModel extends CI_Model
 	public function deleteBrand($id)
 	{
 		return $this->db->delete('brand', ['id' => $id]);
+	}
+
+
+	public function getbrandName()
+	{
+
+		
+		  $arr=[];
+
+		    	$query = $this->db->get('brand');
+
+				foreach ($query->result() as $row)
+				{
+				 $arr[$row->id] =  $row->brand_name;
+				
+				}
+
+			return $arr;
+
+
+		
 	}
 
 	

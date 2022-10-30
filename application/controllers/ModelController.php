@@ -33,7 +33,7 @@ class ModelController extends CI_Controller
 
 		$data = [
 
-			'brand_id'		 => $this->input->post('brand_name'),
+			'brand_id'		     => $this->input->post('brand_name'),
 			'name'				 => $this->input->post('name'),
 			'entry_date' 		 => $this->input->post('entry_date'),
 
@@ -52,14 +52,11 @@ class ModelController extends CI_Controller
 
 	}
 
-
-
-
-
-
-
 	public function edite($id)
 	{
+		$this->load->model('BrandModel');
+		$data['model'] =  $this->BrandModel->getbrandName();
+
 		$this->load->model('ModelMenu');
 
 		$data['edit'] = $this->ModelMenu->editModels($id);
@@ -70,5 +67,54 @@ class ModelController extends CI_Controller
 		$this->load->view('model_edt', $data);
 
 		$this->load->view('include/footer');
+	}
+
+
+
+
+
+	public function update($id)
+	{
+
+		$this->load->model('BrandModel');
+		$data['model'] =  $this->BrandModel->getbrandName();
+
+		$data = [
+
+			'brand_id'		     => $this->input->post('brand_name'),
+			'name'				 => $this->input->post('name'),
+			'entry_date' 		 => $this->input->post('entry_date'),
+
+		];
+
+
+	
+		$this->load->model('ModelMenu');
+
+		$this->ModelMenu->modelUpdate($data,$id);
+
+		redirect(base_url('model'));
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	public function delete($id)
+	{
+
+		$this->load->model('ModelMenu');
+		$this->ModelMenu->deleteModel($id);
+		redirect(base_url('model'));
+		
 	}
 }

@@ -30,7 +30,7 @@
 							</a>
 							<!--  -->
 
-							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href=""><i class="fa fa-trash"></i></a>
+							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href="<?= base_url('model/delete/'.$row->id)?>"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -77,7 +77,7 @@
 
 						<?php foreach ($model as $row) { ?>
 
-							<option value="<?php echo $row->id?>"><?php echo $row->brand_name ?></option>
+							<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
 
 						<?php } ?>
 

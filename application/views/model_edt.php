@@ -16,12 +16,11 @@
 
 					<option selected>Select Brand</option>
 
-					<?php foreach ($model as $row) { ?>
+					<?php foreach ($brand as $key => $row) { ?>
 
-						<option value=""><?php echo $row ?></option>
+						<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
 
-					<?php } ?>
-
+						<?php }  ?>
 
 				</select>
 			</div>

@@ -11,7 +11,9 @@ class ModelController extends CI_Controller
 
 
 		// $this->load->model('BrandModel');
-		// $data['model'] =  $this->BrandModel->getbrandName();
+		// $data['brand'] =  $this->BrandModel->getbrandName();
+		$this->load->model('BrandModel');
+		$data['brand'] = $this->BrandModel->getBrand();
 
 
 		$this->load->model('ModelMenu');
@@ -40,10 +42,7 @@ class ModelController extends CI_Controller
 		];
 
 
-		echo "<pre>";
-		print_r($data);
-		echo "</pre>";
-		
+
 		$this->load->model('ModelMenu');
 		$this->ModelMenu->insertModels($data);
 
@@ -54,8 +53,10 @@ class ModelController extends CI_Controller
 
 	public function edite($id)
 	{
+
+
 		$this->load->model('BrandModel');
-		$data['model'] =  $this->BrandModel->getbrandName();
+		$data['brand'] = $this->BrandModel->getBrand();
 
 		$this->load->model('ModelMenu');
 
@@ -87,7 +88,6 @@ class ModelController extends CI_Controller
 
 		];
 
-
 	
 		$this->load->model('ModelMenu');
 
@@ -99,15 +99,6 @@ class ModelController extends CI_Controller
 
 
 	}
-
-
-
-
-
-
-
-
-
 
 	public function delete($id)
 	{

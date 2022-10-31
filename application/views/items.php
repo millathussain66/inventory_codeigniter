@@ -13,42 +13,31 @@
 					<th scope="col">Entry Date </th>
 					<th scope="col">Action</th>
 				</tr>
+           </thead>
+		   <tbody>
 
+			<tr>
 
-			</thead>
-			<tbody>
-				<?php foreach ($items as $key => $row) { ?>
-					<tr>
-
-						<td><?php echo $key + 1; ?></td>
-						<td><?php echo $row->item; ?></td>
-						<td>
-
-
-							<?php foreach ($model_item as $model_c) {
-								echo $model_c->name;
-							} ?>
-
-
-
-						</td>
-						<td><?php echo $row->brand_name; ?></td>
-						<td><?php echo $row->entry_date; ?></td>
-						<td>
-							<a class="" href="<?php echo base_url("items/edite/" . $row->id); ?>">
+			<td>Millat</td>
+			<td>Millat</td>
+			<td>Millat</td>
+			<td>Millat</td>
+			<td>Millat</td>
+			<td>
+			<a class="" href="">
 								<i class="fa fa-pencil-square-o"></i>
 							</a>
 							<!--  -->
 
-							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href="<?= base_url(
-																															"items/delete/" . $row->id
-																														) ?>"><i class="fa fa-trash"></i></a>
-						</td>
-					</tr>
-				<?php } ?>
+							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href=""><i class="fa fa-trash"></i></a>
+			</td>
+			
+			</tr>
+
+			
+		   </tbody>
 
 
-			</tbody>
 		</table>
 
 
@@ -76,7 +65,7 @@
 			<div class="modal-body">
 
 
-				<form action="<?php echo base_url('items/add') ?>" method="post" name="myform"">
+				<form action="" method="post" name="myform"">
 
 					<div class=" input-group mb-3">
 					<div class="input-group-prepend">
@@ -86,15 +75,12 @@
 					<select class="custom-select" name="brand_name">
 
 						<option selected>Select Brand</option>
-						<?php foreach ($items as $key => $row) { ?>
 
-							<option value=""> <?php echo $row->brand_name ?> </option>
+						<?php foreach ($brand as $key => $row) { ?>
 
-							<?php }?>
+							<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
 
-
-
-
+						<?php }  ?>
 
 					</select>
 			</div>
@@ -103,14 +89,17 @@
 					<span class="input-group-text">Model Name * </span>
 				</div>
 				<!-- <input type="text" name="brand_name" class="form-control" require> -->
+
 				<select class="custom-select" name="name">
 
-					<option selected>Select Model</option>
+					<option selected>Select Brand</option>
 
-					<?php foreach ($model_item as $model_c) { ?>
+					<?php foreach ($model as $key => $row) { ?>
 
-						<option value=""> <?php echo $model_c->name ?> </option>
-					<?php } ?>
+						<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
+
+					<?php }  ?>
+
 				</select>
 
 

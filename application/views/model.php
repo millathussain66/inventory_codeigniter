@@ -7,7 +7,7 @@
 			<thead>
 				<tr>
 					<th scope="col">SL</th>
-					<th scope="col">Name</th>
+					<th scope="col">Model Name</th>
 					<th scope="col">Brand Name </th>
 					<th scope="col">Entry Date </th>
 					<th scope="col">Action</th>
@@ -30,7 +30,7 @@
 							</a>
 							<!--  -->
 
-							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href="<?= base_url('model/delete/'.$row->id)?>"><i class="fa fa-trash"></i></a>
+							<a onclick="alert('Are You Sure To Delete The Selected Brand?')" class="text-danger" href="<?= base_url('model/delete/' . $row->id) ?>"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -61,43 +61,47 @@
 			</div>
 			<div class="modal-body">
 
+				<div id="error"></div>
 
-				<form action="<?php echo base_url('model/add') ?>" method="post" name="myform"">
+
+				<form action="<?php echo base_url('model/add') ?>" method="post" name="myform" id="brandform">
 
 					<div class=" input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text">Brand Name * </span>
+						<div class="input-group-prepend">
+							<span class="input-group-text">Brand Name * </span>
+						</div>
+						<!-- <input type="text" name="brand_name" class="form-control" require> -->
+
+
+						<select class="custom-select" name="brand_name" id="brand_name">
+
+							<option selected value="">Select Brand</option>
+
+
+							<?php foreach ($brand as $key => $row) { ?>
+
+								<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
+
+							<?php }  ?>
+
+
+						</select>
 					</div>
-					<!-- <input type="text" name="brand_name" class="form-control" require> -->
-					<select class="custom-select" name="brand_name">
 
-						<option selected>Select Brand</option>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Model Name * </span>
+						</div>
+						<input type="text" name="name" class="form-control" id="name-model">
+						<?php echo form_hidden('entry_date', date('Y-m-d H:i:S')) ?>
+					</div>
+					<input class="btn btn-outline-primary" type="submit" value="Add">
+				</form>
 
-
-
-						<?php foreach ($model as $row) { ?>
-
-							<option value="<?php echo $row->id ?>"><?php echo $row->brand_name ?></option>
-
-						<?php } ?>
-
-					</select>
 			</div>
-
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Model Name * </span>
-				</div>
-				<input type="text" name="name" class="form-control" require>
-				<?php echo form_hidden('entry_date', date('Y-m-d H:i:S')) ?>
-			</div>
-			<input class="btn btn-outline-primary" type="submit" value="Add">
-			</form>
 
 		</div>
-
 	</div>
-</div>
 </div>
 <!-- Modal Create -->
 

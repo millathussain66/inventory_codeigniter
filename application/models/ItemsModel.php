@@ -21,25 +21,7 @@ class ItemsModel extends CI_Model
 		return $query->result();
 	}
 
-
-	public function insertItems($data)
-	{
-		return $this->db->insert('items', $data);
-	}
-
-
-
-
-
-
-
-	public function deleteItems($id)
-	{
-		return $this->db->delete('items', ['id' => $id]);
-	}
-
-
-
+     
 
 
 }

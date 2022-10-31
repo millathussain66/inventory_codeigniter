@@ -7,8 +7,12 @@ class BrandController extends CI_Controller
 
 	public function index()
 	{
-		$this->load->model('BrandModel');
 
+
+		$this->load->model('BrandModel');
+		$data['brand'] = $this->BrandModel->getBrand();
+		
+		$this->load->model('BrandModel');
 		$data['brand'] = $this->BrandModel->getBrand();
 
 
@@ -22,7 +26,6 @@ class BrandController extends CI_Controller
 
 	public function store()
 	{
-		$this->load->library('form_validation');
 
 
 		$data = [

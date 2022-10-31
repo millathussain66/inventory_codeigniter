@@ -12,9 +12,6 @@ class BrandController extends CI_Controller
 		$this->load->model('BrandModel');
 		$data['brand'] = $this->BrandModel->getBrand();
 		
-		$this->load->model('BrandModel');
-		$data['brand'] = $this->BrandModel->getBrand();
-
 
 		$this->load->view('include/header');
 
@@ -26,8 +23,6 @@ class BrandController extends CI_Controller
 
 	public function store()
 	{
-
-
 		$data = [
 
 			'brand_name' => $this->input->post('brand_name'),

@@ -24,13 +24,6 @@ class ModelMenu extends CI_Model
 		return $this->db->insert('models', $data);
 	}
 
-
-
-
-
-
-	
-
 	public function editModels($id)
 	{
 		$query = $this->db->get_where('models', ['id' => $id]);
